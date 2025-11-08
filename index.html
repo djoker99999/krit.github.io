@@ -199,14 +199,6 @@
       flex-wrap: wrap;
     }
 
-    .attack-modes-row {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      width: 100%;
-      flex-wrap: wrap;
-    }
-
     .attack-mode-btn {
       padding: 15px 20px;
       font-size: 18px;
@@ -320,6 +312,9 @@
       background: linear-gradient(45deg, #27ae60, #2ecc71);
       font-size: 20px;
       padding: 18px 40px;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 300px;
     }
 
     #spinBtn:hover {
@@ -1206,6 +1201,9 @@
       </div>
     </div>
 
+    <!-- Bouton Tourner les rouleaux placé directement sous les symboles -->
+    <button id="spinBtn">Tourner les rouleaux</button>
+
     <div class="attack-modes">
       <div class="attack-modes-row">
         <button id="mode1" class="attack-mode-btn active">
@@ -1225,25 +1223,10 @@
           <div>100 tours</div>
         </button>
       </div>
-      <div class="attack-modes-row">
-        <button id="mode1000" class="attack-mode-btn">
-          <img src="https://i.ibb.co/nNy17WfL/IMG-6065.png" alt="Mini Gun - 1000 tours" class="attack-mode-image">
-          <div>1,000 tours</div>
-        </button>
-        <button id="mode3000" class="attack-mode-btn">
-          <img src="https://i.ibb.co/JMPfpWV/IMG-5851.png" alt="Galaxie - 3000 tours" class="attack-mode-image">
-          <div>3,000 tours</div>
-        </button>
-        <button id="mode5000" class="attack-mode-btn">
-          <img src="https://i.ibb.co/0pM1D3wm/IMG-7123.png" alt="Ultime - 5000 tours" class="attack-mode-image">
-          <div>5,000 tours</div>
-        </button>
-      </div>
     </div>
 
     <!-- Contrôles principaux -->
     <div class="main-controls">
-      <button id="spinBtn">Tourner les rouleaux</button>
       <button id="speedBtn">⏩ Accélérer</button>
     </div>
 
@@ -2421,9 +2404,6 @@
     document.getElementById("mode10").addEventListener("click", () => setAttackMode(10));
     document.getElementById("mode30").addEventListener("click", () => setAttackMode(30));
     document.getElementById("mode100").addEventListener("click", () => setAttackMode(100));
-    document.getElementById("mode1000").addEventListener("click", () => setAttackMode(1000));
-    document.getElementById("mode3000").addEventListener("click", () => setAttackMode(3000));
-    document.getElementById("mode5000").addEventListener("click", () => setAttackMode(5000));
 
     // Raccourcis clavier
     document.addEventListener('keydown', (e) => {
@@ -2442,8 +2422,8 @@
         toggleSpeedMode();
       }
       
-      if (e.key >= '1' && e.key <= '7') {
-        const modes = [1, 10, 30, 100, 1000, 3000, 5000];
+      if (e.key >= '1' && e.key <= '4') {
+        const modes = [1, 10, 30, 100];
         const index = parseInt(e.key) - 1;
         if (index < modes.length) {
           setAttackMode(modes[index]);
